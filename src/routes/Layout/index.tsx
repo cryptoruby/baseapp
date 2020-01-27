@@ -157,14 +157,13 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
 
     public render() {
         const {
-            colorTheme,
             isLoggedIn,
             userLoading,
         } = this.props;
         const { isShownExpSessionModal } = this.state;
 
         const tradingCls = window.location.pathname.includes('/trading') ? 'trading-layout' : '';
-        toggleColorTheme(colorTheme);
+        toggleColorTheme('light');
 
         return (
             <div className={`container-fluid pg-layout ${tradingCls}`}>

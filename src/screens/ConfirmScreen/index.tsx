@@ -19,8 +19,8 @@ import {
     User,
 } from '../../modules';
 
-import logo from '../../assets/images/logo.svg';
-import logoLight from '../../assets/images/logoLight.svg';
+import logo from '../../custom/assets/images/logo.svg';
+import logoLight from '../../custom/assets/images/logoLight.svg';
 
 interface ReduxProps {
     colorTheme: string;

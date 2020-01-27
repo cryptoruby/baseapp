@@ -3,7 +3,7 @@
 
 :root {
   /* typography */
-  --font-family: Roboto, Helvetica, sans-serif;
+  --font-family: "Noto Sans";
   --font-weight: normal;
   --font-size: 12px !important;
   --font-size-smaller: calc(var(--font-size) * 0.9);
@@ -169,10 +169,14 @@ body {
 
   .show > .btn-primary.dropdown-toggle {
     color: var(--primary-text-color);
+    border-color: var(--primary-cta-color);
+    background: var(--primary-cta-color);
   }
 
   .dropdown-toggle:focus {
     color: var(--primary-text-color);
+    border-color: var(--primary-cta-color);
+    box-shadow: 0 0 0 0.2rem rgba(#f5452d,.5);
   }
 }
 
@@ -344,15 +348,29 @@ input:-webkit-autofill {
   &:hover {
     background-color: var(--cta-color-opacity-48);
     border: 1px solid var(--cta-color-opacity-48);
+    color: var(--contrast-cta-color);
+    opacity: 1;
   }
 
   &:disabled {
-    color: var(--cta-contrast-opacity-48);
-    background-color: var(--cta-color-opacity-48);
-    border: 1px solid var(--cta-color-opacity-48);
+    color: var(--contrast-cta-color);
+    background-color: var(--primary-cta-color);
+    border: 1px solid var(--primary-cta-color);
+  }
+
+  &:focus {
+    color: var(--contrast-cta-color);
+    background-color: var(--primary-cta-color);
+    border-color: var(--primary-cta-color);
+    box-shadow: 0 0 0 0.2rem rgba(#f5452d,.5);
   }
 }
 
 .form-control {
   border: 1px solid var(--input-border);
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+  background-color: var(--primary-cta-color);
+  border-color: var(--primary-cta-color);
 }
