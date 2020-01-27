@@ -1,6 +1,4 @@
-import { customColors, CUSTOM_PG_TITLE_PREFIX } from '../custom/constants';
-
-export const PG_TITLE_PREFIX = CUSTOM_PG_TITLE_PREFIX || 'Cryptobase';
+export const CUSTOM_PG_TITLE_PREFIX = 'Wiprex';
 
 export const pgRoutes = (isLoggedIn: boolean): string[][] => {
     const routes = [
@@ -22,42 +20,41 @@ export const STORAGE_DEFAULT_LIMIT = 50;
 export const VALUATION_PRIMARY_CURRENCY = 'USD';
 export const VALUATION_SECONDARY_CURRENCY = 'ETH';
 
-export const colors = {
+export const customColors = {
     light: {
         chart: {
             primary: '#fff',
-            up: '#54B489',
-            down: '#E85E59',
+            up: '#24ce95',
+            down: '#ff5f62',
         },
         navbar: {
-            avatar: '#28334E',
-            language: '#28334E',
-            logout: '#28334E',
+            avatar: '#4C525E',
+            language: '#737F92',
+            logout: '##737F92',
             sun: '#959EAB',
             moon: '#fff',
         },
         orderBook: {
-            asks: 'rgba(232, 94, 89, 0.4)',
-            bids: 'rgba(84, 180, 137, 0.4)',
+            asks: '#ffc1c1',
+            bids: '#a9ffdc',
         },
     },
     basic: {
         chart: {
-            primary: '#1E2841',
-            up: '#54B489',
-            down: '#E85E59',
+            primary: '#fff',
+            up: '#24ce95',
+            down: '#ff5f62',
         },
         navbar: {
-            avatar: '#737F92',
+            avatar: '#4C525E',
             language: '#737F92',
-            logout: '#fff',
-            sun: '#fff',
-            moon: '#28334E',
+            logout: '##737F92',
+            sun: '#959EAB',
+            moon: '#fff',
         },
         orderBook: {
-            asks: 'rgba(232, 94, 89, 0.4)',
-            bids: 'rgba(84, 180, 137, 0.4)',
+            asks: '#ffc1c1',
+            bids: '#a9ffdc',
         },
     },
-    ...customColors,
 };
