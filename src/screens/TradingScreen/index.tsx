@@ -7,7 +7,6 @@ import { Decimal } from '../../components/Decimal';
 import { Grid } from '../../components/Grid';
 import {
     MarketsComponent,
-    MarketDepthsComponent,
     OpenOrdersComponent,
     OrderBook,
     OrderComponent,
@@ -102,18 +101,14 @@ class Trading extends React.Component<Props, StateProps> {
         },
         {
             i: 4,
-            render: () => <MarketDepthsComponent />,
-        },
-        {
-            i: 5,
             render: () => <OpenOrdersComponent/>,
         },
         {
-            i: 6,
+            i: 5,
             render: () => <RecentTrades/>,
         },
         {
-            i: 7,
+            i: 6,
             render: () => <MarketsComponent/>,
         },
     ];
@@ -166,7 +161,7 @@ class Trading extends React.Component<Props, StateProps> {
                 history.replace(`/trading/${nextProps.currentMarket.id}`);
 
                 if (!incrementalOrderBook()) {
-                  this.props.depthFetch(nextProps.currentMarket);
+                    this.props.depthFetch(nextProps.currentMarket);
                 }
             }
         }
