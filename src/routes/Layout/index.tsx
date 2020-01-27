@@ -9,6 +9,12 @@ import { minutesUntilAutoLogout } from '../../api';
 import { WalletsFetch } from '../../containers';
 import { toggleColorTheme } from '../../helpers';
 import {
+    SignInScreen,
+    SignUpScreen,
+    TradingScreen,
+} from '../../custom/screens';
+// import { TwoFactorAuth } from '../../custom/screens';
+import {
     configsFetch,
     logoutFetch,
     Market,
@@ -31,12 +37,9 @@ import {
     OrdersTabScreen,
     ProfileScreen,
     ProfileTwoFactorAuthScreen,
-    SignInScreen,
-    SignUpScreen,
     VerificationScreen,
     WalletsScreen,
 } from '../../screens';
-import { TradingScreen } from '../../custom/screens';
 import { ExpiredSessionModal } from '../../components';
 
 interface ReduxProps {
@@ -169,6 +172,7 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
             <div className={`container-fluid pg-layout ${tradingCls}`}>
                 <Switch>
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signin" component={SignInScreen} />
+                    {/* <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/verification" component={TwoFactorAuth} /> */}
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/accounts/confirmation" component={VerificationScreen} />
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/signup" component={SignUpScreen} />
                     <PublicRoute loading={userLoading} isLogged={isLoggedIn} path="/forgot_password" component={ForgotPasswordScreen} />

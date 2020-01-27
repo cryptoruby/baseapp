@@ -1,0 +1,53 @@
+.custom-input {
+  label {
+    position: absolute;
+    top: -14px;
+    z-index: 5;
+    background: transparent;
+    left: -4px;
+    font-size: 14px;
+    padding: 0 calc(var(--gap) * 0.7);
+    margin-top: -8px;
+    letter-spacing: -0.45px;
+    font-weight: 500;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover {
+    border: 1px solid var(--contrast-cta-color);
+  }
+
+  input,
+  input:focus {
+    background: var(--body-background-color) !important;
+    color: var(--primary-text-color);
+    box-shadow: none;
+    border: 1px solid var(--contrast-cta-color);
+    border-radius: 0;
+  }
+
+  input:focus {
+    border: 1px solid var(--primary-cta-color);
+  }
+
+  input:focus-within {
+    border: 1px solid var(--primary-cta-color);
+
+    label {
+      color: var(--primary-cta-color);
+    }
+  }
+
+  .input-group-lg>.form-control {
+    border-radius: 0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    border-radius: 0;
+    -webkit-text-fill-color: var(--primary-text-color);
+    -webkit-box-shadow: 0 0 0px 1000px var(--body-background-color) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}

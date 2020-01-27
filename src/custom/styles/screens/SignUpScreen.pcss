@@ -5,13 +5,18 @@
   background-color: var(--main-background-color);
   background: none;
 
+  .custom-control-label::before {
+    border: none;
+    border-radius: 0;
+  }
+
   .pg-sign-up-screen__container {
     background: transparent;
     margin-top: calc(var(--gap) * 3.33);
     width: calc(var(--gap) * 70.66);
   }
   .cr-sign-up-form {
-    background: var(--body-background-color);
+    background: transparent;
     margin: 0 auto;
     border-radius: calc(var(--gap) * 0.66);
     min-height: calc(var(--big-gap) * 10);
@@ -27,7 +32,10 @@
     }
 
     &__group {
-      margin-bottom: calc(var(--gap) * 3.1);
+      margin-bottom: 36px;
+      &:nth-child(5) {
+        margin-bottom: 10px;
+      }
     }
 
     &__option {
@@ -75,21 +83,6 @@
       font-size: calc(var(--gap) * 4);
       margin: calc(var(--gap) * 6.66) !important;
     }
-    &__label {
-      background: var(--body-background-color);
-      color: var(--text-muted);
-      font-size: calc(var(--gap) * 2);
-      top: calc(var(--gap) * (-1.33));
-      position: absolute;
-    }
-    &__input {
-      input {
-        color: var(--primary-text-color);
-        font-size: calc(var(--gap) * 2.33);
-        border: 1px solid var(--input-border);
-        border-radius: calc(var(--gap) * 0.66);
-      }
-    }
     &__footer {
       &-create {
         font-size: calc(var(--gap) * 2.33);
@@ -105,9 +98,9 @@
     .cr-checkbox {
       padding-left: calc(2.6 * var(--checkbox-general-intent));
       &__checkitem {
-        border-color: var(--icon);
+        border-color: var(--contrast-cta-color);
         &::after {
-          border-color: var(--primary-text-color);
+          border-color: var(--contrast-cta-color);
         }
       }
       &__label {

@@ -411,6 +411,11 @@ export const ru: LangType = {
     'page.modal.expired.title': 'Ваша сессия истекла',
     'page.modal.expired.submit': 'Обновить сессию',
 
+    'page.signUp.body.or': 'or',
+    'page.header.signUp.terms.highlight': 'Terms and Conditions',
+    'page.header.signUp.over18': 'I’m over 18 and agree to sign up',
+
+
     // success messages
     'success.documents.accepted': 'Ваши документы успешно приняты',
     'success.identity.accepted': 'Данные профиля успешно приняты',
