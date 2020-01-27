@@ -1,9 +1,60 @@
 ---
 kind: pipeline
+name: "Wiprex redeploy"
+
+concurrency:
+  limit: 3
+
+steps:
+  - name: "Build enterprise customer image and push to reg.openware.work"
+    image: plugins/docker
+    environment:
+      BUILD_DOMAIN: ".openware.work"
+      REACT_APP_BUILD_VERSION: Enterprise
+    settings:
+      username:
+        from_secret: ow_registry_username
+      password:
+        from_secret: ow_registry_password
+      repo: reg.openware.work/wiprex/surface
+      tags: ${DRONE_COMMIT:0:7}
+      build_args_from_env:
+        - REACT_APP_BUILD_VERSION
+        - BUILD_DOMAIN
+      registry: reg.openware.work
+    when:
+      branch:
+          - customer/wiprex
+      event:
+          - push
+
+  - name: "CD to wiprex.openware.work"
+    image: rubykube/microkube:0.2.0
+    environment:
+      WEBHOOK_JWT_SECRET:
+        from_secret: wiprex_webhook_secret
+    commands:
+      - export latest_image=reg.openware.work/wiprex/surface:${DRONE_COMMIT_SHA:0:7}
+      - cd /home/app
+      - bundle exec rake payload:send[frontend,$latest_image,http://wiprex.openware.work:1337]
+    when:
+      branch:
+          - customer/wiprex
+      event:
+          - push
+
+trigger:
+  event:
+    - push
+  branch:
+    - customer/wiprex
+
+---
+kind: pipeline
 name: "Push"
 
 concurrency:
-  limit: 2
+  limit: 3
 
 steps:
   - name: "Test & Build"
@@ -56,7 +107,7 @@ steps:
       webhook:
         from_secret: baseapp_slack_webhook
       channel:
-        from_secret: baseapp_slack_channel
+        from_secret: wiprex_slack_channel
       template: >
         {{#success build.status}}
           [SUCCESS] (Base Application) Branch {{ build.branch }} by {{ build.author }} staging has succeeded!
@@ -82,7 +133,7 @@ kind: pipeline
 name: "New version"
 
 concurrency:
-  limit: 2
+  limit: 3
 
 steps:
   - name: "Test"
