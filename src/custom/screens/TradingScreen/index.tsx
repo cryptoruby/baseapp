@@ -2,20 +2,19 @@ import * as React from 'react';
 import { InjectedIntlProps, injectIntl } from 'react-intl';
 import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { incrementalOrderBook } from '../../api';
-import { Decimal } from '../../components/Decimal';
-import { Grid } from '../../components/Grid';
+import { incrementalOrderBook } from '../../../api';
+import { Decimal } from '../../../components/Decimal';
+import { Grid } from '../../../components/Grid';
 import {
     MarketsComponent,
-    MarketDepthsComponent,
     OpenOrdersComponent,
     OrderBook,
     OrderComponent,
     RecentTrades,
     ToolBar,
     TradingChart,
-} from '../../containers';
-import { getUrlPart, setDocumentTitle } from '../../helpers';
+} from '../../../containers';
+import { getUrlPart, setDocumentTitle } from '../../../helpers';
 import {
     RootState,
     selectCurrentMarket,
@@ -26,14 +25,15 @@ import {
     setCurrentPrice,
     Ticker,
     User,
-} from '../../modules';
-import { GridLayoutState, saveLayouts, selectGridLayoutState } from '../../modules/public/gridLayout';
-import { Market, marketsFetch, selectMarkets } from '../../modules/public/markets';
-import { depthFetch } from '../../modules/public/orderBook';
-import { rangerConnectFetch, RangerConnectFetch } from '../../modules/public/ranger';
-import { RangerState } from '../../modules/public/ranger/reducer';
-import { selectRanger } from '../../modules/public/ranger/selectors';
-import { selectWallets, Wallet, walletsFetch } from '../../modules/user/wallets';
+} from '../../../modules';
+import { GridLayoutState, saveLayouts, selectGridLayoutState } from '../../../modules/public/gridLayout';
+import { Market, marketsFetch, selectMarkets } from '../../../modules/public/markets';
+import { depthFetch } from '../../../modules/public/orderBook';
+import { rangerConnectFetch, RangerConnectFetch } from '../../../modules/public/ranger';
+import { RangerState } from '../../../modules/public/ranger/reducer';
+import { selectRanger } from '../../../modules/public/ranger/selectors';
+import { selectWallets, Wallet, walletsFetch } from '../../../modules/user/wallets';
+import { HeaderToolbar } from '../../containers';
 
 const breakpoints = {
     lg: 1200,
@@ -102,19 +102,19 @@ class Trading extends React.Component<Props, StateProps> {
         },
         {
             i: 4,
-            render: () => <MarketDepthsComponent />,
-        },
-        {
-            i: 5,
             render: () => <OpenOrdersComponent/>,
         },
         {
-            i: 6,
+            i: 5,
             render: () => <RecentTrades/>,
         },
         {
-            i: 7,
+            i: 6,
             render: () => <MarketsComponent/>,
+        },
+        {
+            i: 7,
+            render: () => <HeaderToolbar/>,
         },
     ];
 

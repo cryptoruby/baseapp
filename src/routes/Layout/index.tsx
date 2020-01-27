@@ -33,10 +33,10 @@ import {
     ProfileTwoFactorAuthScreen,
     SignInScreen,
     SignUpScreen,
-    TradingScreen,
     VerificationScreen,
     WalletsScreen,
 } from '../../screens';
+import { TradingScreen } from '../../custom/screens';
 import { ExpiredSessionModal } from '../../components';
 
 interface ReduxProps {
