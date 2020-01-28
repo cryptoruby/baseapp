@@ -359,7 +359,7 @@ input:-webkit-autofill {
     border: 1px solid var(--primary-cta-color);
   }
 
-  &:focus {
+  &:focus, &:not(:disabled):not(.disabled):active {
     color: var(--contrast-cta-color);
     background-color: var(--primary-cta-color);
     border-color: var(--primary-cta-color);

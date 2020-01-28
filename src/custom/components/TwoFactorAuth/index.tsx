@@ -2,41 +2,36 @@ import cr from 'classnames';
 import * as React from 'react';
 import { Button } from 'react-bootstrap';
 import { CustomInput } from '../../../components';
-import { CloseIcon } from '../../../assets/images/CloseIcon';
+import { IconBack } from '../../assets/images/IconBack';
 
 export interface TwoFactorAuthProps {
-    errorMessage?: string;
+    error?: React.ReactNode;
     isLoading?: boolean;
     onSubmit: () => void;
     title: string;
     label: string;
     buttonLabel: string;
-    message: string;
     otpCode: string;
-    error: string;
     codeFocused: boolean;
     handleOtpCodeChange: (otp: string) => void;
     handleChangeFocusField: () => void;
-    handleClose2fa: () => void;
+    redirectToSignIn: () => void;
 }
 
 class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
     public render() {
         const {
-            errorMessage,
+            error,
             isLoading,
             title,
             label,
             buttonLabel,
-            message,
-            error,
             otpCode,
             codeFocused,
         } = this.props;
 
-        const errors = errorMessage || error;
         const buttonWrapperClass = cr('cr-email-form__button-wrapper', {
-            'cr-email-form__button-wrapper--empty': !errors,
+            'cr-email-form__button-wrapper--empty': !error,
         });
         const emailGroupClass = cr('cr-email-form__group', {
             'cr-email-form__group--focused': codeFocused,
@@ -48,17 +43,14 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
                         <div className="cr-email-form__options-group">
                             <div className="cr-email-form__option">
                                 <div className="cr-email-form__option-inner">
-                                    {title || '2FA verification'}
                                     <div className="cr-email-form__cros-icon" onClick={this.handleCancel}>
-                                        <CloseIcon alt="close" className="close-icon" />
+                                        <IconBack alt="back" className="back-icon" />
                                     </div>
+                                    {title || 'Login verification'}
                                 </div>
                             </div>
                         </div>
                         <div className="cr-email-form__form-content">
-                            <div className="cr-email-form__header">
-                              {message}
-                            </div>
                             <div className={emailGroupClass}>
                                 <CustomInput
                                     type="number"
@@ -73,7 +65,7 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
                                     onKeyPress={this.handleEnterPress}
                                     autoFocus={true}
                                 />
-                                {errorMessage && <div className="cr-email-form__error">{errorMessage}</div>}
+                                {error && <div className="cr-email-form__error">{error}</div>}
                             </div>
                             <div className={buttonWrapperClass}>
                                 <Button
@@ -93,7 +85,7 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
     }
 
     private handleCancel = () => {
-        this.props.handleClose2fa();
+        this.props.redirectToSignIn();
     }
 
     private handleSubmit = () => {

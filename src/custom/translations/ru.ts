@@ -414,7 +414,7 @@ export const ru: LangType = {
     'page.signUp.body.or': 'or',
     'page.header.signUp.terms.highlight': 'Terms and Conditions',
     'page.header.signUp.over18': 'I’m over 18 and agree to sign up',
-
+    'page.body.singin2fa.error': 'OTP code is wrong',
 
     // success messages
     'success.documents.accepted': 'Ваши документы успешно приняты',

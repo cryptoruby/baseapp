@@ -1,0 +1,22 @@
+.pg-otp-screen {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 95px);
+  background-color: var(--main-background-color);
+  background: none;
+  .pg-otp-screen__container {
+    background: transparent;
+    margin-top: calc(var(--gap) * 3.33);
+    width: calc(var(--gap) * 70.66);
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .pg-otp-screen {
+    .pg-otp-screen__container {
+      margin: calc(var(--gap) * 3.33) calc(var(--gap) * 1.66) 0;
+      width: 100%;
+    }
+  }
+}

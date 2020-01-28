@@ -1,0 +1,96 @@
+.pg-2fa___form {
+  .cr-email-form {
+    background: transparent;
+    min-height: calc(var(--big-gap) * 5);
+    box-shadow: none;
+
+    &__form-content {
+      right: 0px;
+      left: 0px;
+      top: 112px;
+    }
+
+    .custom-input {
+      border: none;
+    }
+
+    &__option {
+      background: transparent;
+
+      &-inner {
+        text-transform: none;
+        font-size: 40px;
+        letter-spacing: -0.5px;
+        color: var(--primary-text-color);
+        font-weight: bold;
+      }
+    }
+
+    &__options-group {
+      width: 100%;
+      height: calc(var(--big-gap) * 0.97);
+      border-bottom: none;
+    }
+
+    &__header {
+      width: calc(var(--big-gap) * 6.3);
+      height: calc(var(--gap) * 4.33);
+      font-style: normal;
+      font-weight: normal;
+      line-height: calc(var(--gap) * 2.66);
+      font-size: calc(var(--gap) * 2.33);
+      color: var(--secondary-text-color);
+      margin: calc(var(--gap) * 0.83);
+    }
+
+    &__cros-icon {
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      margin-top: 0;
+      height: calc(var(--gap) * 2.5);
+      width: unset;
+      cursor: pointer;
+    }
+
+    &__group--focused {
+      .cr-email-form__label {
+        color: var(--primary-cta-color);
+      }
+      input {
+        border-color: var(--primary-cta-color) !important;
+      }
+    }
+
+    &__button-wrapper {
+      min-height: calc(var(--gap) * 10);
+      bottom: 30px !important;
+    }
+
+    &__button {
+      color: var(--primary-text-color);
+      background: transparent;
+      border-radius: calc(var(--gap) * 0.5);
+      font-size: calc(var(--gap) * 2.66);
+      line-height: normal;
+      font-style: normal;
+      font-weight: normal;
+      margin-left: 0;
+      text-align: center;
+      text-transform: uppercase;
+
+      &--disabled {
+        color: var(--cta-contrast-opacity-48) !important;
+        background: var(--cta-color-opacity-48) !important;
+      }
+
+      &:hover {
+        background: var(--button-hover);
+      }
+
+      &:active {
+        background: var(--button-active);
+      }
+    }
+  }
+}
