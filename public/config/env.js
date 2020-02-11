@@ -7,7 +7,7 @@ window.env = {
     },
     minutesUntilAutoLogout: '60',
     withCredentials: false,
-    gaTrackerKey: '',
+    gaTrackerKey: 'UA-158045335-1',
     rangerReconnectPeriod: '1',
     msAlertDisplayTime: '7777',
     incrementalOrderBook: true,
